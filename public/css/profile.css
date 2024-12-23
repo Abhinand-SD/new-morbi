@@ -1,0 +1,42 @@
+.profile-container {
+    width: 80%;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-info, .order-history, .account-settings {
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+.btnPF {
+    display: inline-block;
+    margin: 5px 0;
+    padding: 10px 20px;
+    background: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.order-history ul li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #f5f5f5;
+    border-radius: 4px;
+}

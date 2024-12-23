@@ -1,0 +1,33 @@
+<div class="profile-container">
+    <!-- User Information -->
+    <section class="user-info">
+        <h1>Hello, <%= user.name %></h1>
+        <p>Email: <%= user.email %></p>
+        <p>Joined: January 1, 2024</p>
+        <a href="/logout" class="btnPF">Logout</a>
+    </section>
+
+    <!-- Order History -->
+    <section class="order-history">
+        <h2>Your Orders</h2>
+        <ul>
+            <li>
+                <strong>Order ID:</strong> 12345<br>
+                <strong>Date:</strong> December 1, 2024<br>
+                <strong>Total:</strong> $99.99
+            </li>
+            <li>
+                <strong>Order ID:</strong> 12346<br>
+                <strong>Date:</strong> December 10, 2024<br>
+                <strong>Total:</strong> $49.99
+            </li>
+        </ul>
+    </section>
+
+    <!-- Account Settings -->
+    <section class="account-settings">
+        <h2>Account Settings</h2>
+        <a href="/update-profile" class="btn">Update Profile</a>
+        <a href="/change-password" class="btn">Change Password</a>
+    </section>
+</div>

@@ -1,0 +1,294 @@
+<link rel="stylesheet" href="./css/user_drop_down.css" />
+<!-- Start Header/Navigation -->
+<nav
+  class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark"
+  aria-label="Furni navigation bar"
+>
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <!-- Logo can be uncommented -->
+      <!-- <img class="logo-img" src="./images/logo.png" alt="image_description">-->
+      NEW MORBI <span class="sub_title"></span>
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarsFurni"
+      aria-controls="navbarsFurni"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsFurni">
+      <!-- Navigation Links -->
+      <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+        <li class="nav-item act"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item act"><a class="nav-link" href="/shop">Shop</a></li>
+        <!-- <li><a class="nav-link" href="/about">About</a></li>
+						<li><a class="nav-link" href="/services.html">Services</a></li>
+						<li><a class="nav-link" href="/blog">Blog</a></li>
+						<li><a class="nav-link" href="/contact">Contact us</a></li> -->
+      </ul>
+
+      <!-- Dropdown Search Bar -->
+      <ul class="navbar-nav mb-2 mb-md-0 ms-3">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle p-0"
+            href="#"
+            id="searchDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              src="images/icons/search.png"
+              alt="Search"
+              style="width: 20px; height: 20px"
+            />
+          </a>
+          <div
+            class="dropdown-menu dropdown-menu-end p-2"
+            aria-labelledby="searchDropdown"
+            style="
+              width: 300px;
+              border-radius: 8px;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            "
+          >
+            <form class="d-flex" role="search">
+              <input
+                class="form-control form-control-sm me-2"
+                type="search"
+                placeholder="Search for products..."
+                aria-label="Search"
+                style="border-radius: 4px; border: 1px solid #ccc; padding: 4px"
+              />
+              <button
+                class="btn btn-outline-light btn-sm"
+                type="submit"
+                style="border-radius: 4px; padding: 2px 8px"
+              >
+                Go
+              </button>
+            </form>
+          </div>
+        </li>
+      </ul>
+
+      <!-- User and Cart Options -->
+      <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-3">
+        <% if (user) { %>
+
+        <!-- User Profile -->
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle text-white"
+            href="#"
+            id="userDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <%= user.name %>
+            <!-- <img src="images/user.svg" alt="User" style="width: 20px; height: 20px; margin-left: 4px;"> -->
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="userDropdown"
+            style="border-radius: 8px; min-width: 200px"
+          >
+            <li>
+              <a
+                class="dropdown-item d-flex align-items-center"
+                href="/profile"
+              >
+                <img
+                  src="images/icons/profile.png"
+                  alt="Profile"
+                  style="width: 20px; height: 20px; margin-right: 10px"
+                />
+                Profile
+              </a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item d-flex align-items-center"
+                href="wallet.html"
+              >
+                <img
+                  src="images/icons/wallet.png"
+                  alt="Future Option"
+                  style="width: 20px; height: 20px; margin-right: 10px"
+                />
+                Wallet
+              </a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item d-flex align-items-center"
+                href="orders.html"
+              >
+                <img
+                  src="images/icons/orders.png"
+                  alt="Orders"
+                  style="width: 20px; height: 20px; margin-right: 10px"
+                />
+                Orders
+              </a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item d-flex align-items-center"
+                href="wishlist.html"
+              >
+                <img
+                  src="images/icons/wishlist.png"
+                  alt="Wishlist"
+                  style="width: 20px; height: 20px; margin-right: 10px"
+                />
+                Wishlist
+              </a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item d-flex align-items-center"
+                href="coupon.html"
+              >
+                <img
+                  src="images/icons/coupon.png"
+                  alt="Future Option"
+                  style="width: 20px; height: 20px; margin-right: 10px"
+                />
+                Coupons
+              </a>
+            </li>
+
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="/logout">
+                <img
+                  src="images/icons/logout.png"
+                  alt="Logout"
+                  style="width: 20px; height: 20px; margin-right: 10px"
+                />
+                Logout
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <% } else { %>
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle text-white"
+            href="#"
+            id="userDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Login
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="userDropdown"
+            style="border-radius: 8px; min-width: 200px"
+          >
+            <!-- New Customer Section -->
+            <li
+              class="dropdown-header d-flex justify-content-between align-items-center px-3"
+            >
+              <span class="text-muted">New customer?</span>
+              <a href="/signUp" class="fw-bold">Sign Up</a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+
+            <li>
+              <a
+                class="dropdown-item d-flex align-items-center"
+                href="/profile"
+              >
+                <img
+                  src="images/icons/profile.png"
+                  alt="Profile"
+                  style="width: 20px; height: 20px; margin-right: 10px"
+                />
+                My Profile
+              </a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item d-flex align-items-center"
+                href="orders.html"
+              >
+                <img
+                  src="images/icons/orders.png"
+                  alt="Orders"
+                  style="width: 20px; height: 20px; margin-right: 10px"
+                />
+                Orders
+              </a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item d-flex align-items-center"
+                href="wishlist.html"
+              >
+                <img
+                  src="images/icons/wishlist.png"
+                  alt="Wishlist"
+                  style="width: 20px; height: 20px; margin-right: 10px"
+                />
+                Wishlist
+              </a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item d-flex align-items-center"
+                href="coupon.html"
+              >
+                <img
+                  src="images/icons/coupon.png"
+                  alt="Coupons"
+                  style="width: 20px; height: 20px; margin-right: 10px"
+                />
+                Coupons
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <% } %>
+        <!-- Cart Icon -->
+        <li>
+          <a class="nav-link" href="/cart"
+            ><img
+              src="images/cart.svg"
+              alt="Cart"
+              style="width: 20px; height: 20px"
+          /></a>
+        </li>
+        <!-- Add this inside the header, preferably in the navbar -->
+        <!-- Add this toggle button inside the navbar -->
+        <li class="nav-item ms-3 d-flex align-items-center">
+          <div class="form-check form-switch m-0">
+            <input class="form-check-input" type="checkbox" id="themeToggle" />
+            <label
+              class="form-check-label text-white ms-2"
+              for="themeToggle"
+            ></label>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- End Header/Navigation -->

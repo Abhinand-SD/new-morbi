@@ -1,0 +1,99 @@
+/* drop down styles
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #eff2f1;
+    color: #333;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1, h2, h3 {
+    color: #222;
+  }
+  
+  .profile-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  
+  .profile-details {
+    flex-grow: 1;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background: #007bff;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+  
+  .btn:hover {
+    background: #0056b3;
+  }
+  
+  .orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .orders-table th, .orders-table td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .coupon-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .coupon {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    background: #f9f9f9;
+  }
+  
+  .coupon h3 {
+    margin: 10px 0;
+    color: #007bff;
+  } */
+
+  .dropdown-header a {
+    text-decoration: none; /* Removes underline */
+    color: #ff914d; /* Bootstrap primary blue color */
+  }
+  .dropdown-header a {
+  margin-left: 8px; /* Adjust spacing as needed */
+}
+
+  .dropdown-header a:hover {
+    text-decoration: underline; /* Adds underline on hover */
+  }
+  
+  
+  

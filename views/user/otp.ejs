@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: #1a1a1a; /* Page background color */
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+        }
+
+        .otp-box {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #1b1b1b;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.8); /* Glowing red shadow */
+            border: 2px solid rgba(255, 0, 0, 0.8); /* Red border */
+            text-align: center;
+        }
+
+        .otp-box h2 {
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .otp-box p {
+            margin-bottom: 20px;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        .otp-inputs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .otp-field {
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            font-size: 1.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #1a1a1a;
+            color: #fff;
+            transition: border-color 0.3s ease;
+        }
+
+        .otp-field.filled {
+            border: 1px solid red; /* Red border when field contains value */
+        }
+
+        .signup-btn {
+            width: 100%;
+            background-color: #ff4d4d;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .signup-btn:hover {
+            background-color: #e04343;
+        }
+
+        .resend-text {
+            color: #ccc;
+            margin-top: 10px;
+        }
+
+        .resend-text a {
+            color: #ff4d4d;
+            text-decoration: none;
+        }
+
+        .resend-text.hidden {
+            display: none; /* Hide resend text */
+        }
+
+        #timer {
+            color: #ff4d4d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="otp-box">
+            <h2>OTP Verification</h2>
+            <p>Please enter the 6-digit OTP sent to your email.</p>
+            <form action="/verifyOTP" method="POST" class="otp-form">
+                <div class="otp-inputs">
+                    <!-- 6 Individual OTP Fields -->
+                    <input type="text" class="otp-field" maxlength="1" oninput="handleInput(this, 'otp2')" onkeydown="handleBackspace(event, 'otp1')" id="otp1" >
+                    <input type="text" class="otp-field" maxlength="1" oninput="handleInput(this, 'otp3')" onkeydown="handleBackspace(event, 'otp1')" id="otp2" >
+                    <input type="text" class="otp-field" maxlength="1" oninput="handleInput(this, 'otp4')" onkeydown="handleBackspace(event, 'otp2')" id="otp3" >
+                    <input type="text" class="otp-field" maxlength="1" oninput="handleInput(this, 'otp5')" onkeydown="handleBackspace(event, 'otp3')" id="otp4" >
+                    <input type="text" class="otp-field" maxlength="1" oninput="handleInput(this, 'otp6')" onkeydown="handleBackspace(event, 'otp4')" id="otp5" >
+                    <input type="text" class="otp-field" maxlength="1" id="otp6" onkeydown="handleBackspace(event, 'otp5')" required>
+                </div>
+
+                 
+                <button type="submit" class="signup-btn">Verify OTP</button>
+            </form>
+            <p id="resend-section" class="resend-text hidden">Not received your code? <a href="/resendOTP">Resend OTP</a></p>
+            <p id="timer-section" class="resend-text">You can resend OTP in <span id="timer">00:30</span></p>
+        </div>
+    </div>
+    <script>
+        // Move to the next OTP input and apply the red border when the field contains a value
+        function handleInput(currentField, nextFieldId) {
+            // Check if the entered value is a number
+            if (currentField.value.trim() !== '' && !isNaN(currentField.value)) {
+                currentField.classList.add('filled'); // Add red border if value is a valid number
+            } else {
+                currentField.classList.remove('filled'); // Remove red border if value is cleared or invalid
+                currentField.value = ''; // Clear the input if it's not a valid number
+            }
+
+            // Move focus to the next field when a number is entered
+            if (nextFieldId && currentField.value.length === 1) {
+                document.getElementById(nextFieldId).focus();
+            }
+
+            // Special check for last OTP field (otp6)
+            if (currentField.id === 'otp6' && currentField.value.trim() !== '') {
+                currentField.classList.add('filled'); // Add red border for the last field
+            }
+            if (currentField.id === 'otp6' && currentField.value.trim() !== '') {
+    currentField.classList.add('filled'); // Add red border for the last field
+}
+
+        }
+
+        // Handle backspace to move focus to the previous field
+        function handleBackspace(event, prevFieldId) {
+            if (event.key === 'Backspace' && !event.target.value) {
+                if (prevFieldId) {
+                    document.getElementById(prevFieldId).focus();
+                }
+            }
+        }
+
+        // Resend OTP Timer
+        const resendSection = document.getElementById('resend-section');
+        const timerSection = document.getElementById('timer-section');
+        const timerSpan = document.getElementById('timer');
+        let countdown = 30; // Timer duration in seconds
+
+        function startTimer() {
+            resendSection.classList.add('hidden'); // Hide resend link initially
+            timerSection.classList.remove('hidden'); // Show timer text
+
+            const interval = setInterval(() => {
+                countdown--;
+
+                const minutes = Math.floor(countdown / 60);
+                const seconds = countdown % 60;
+
+                timerSpan.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+                if (countdown <= 0) {
+                    clearInterval(interval);
+                    timerSection.classList.add('hidden'); // Hide timer text
+                    resendSection.classList.remove('hidden'); // Show resend link
+                }
+            }, 1000);
+        }
+
+        // Initialize timer on page load
+        startTimer();
+    </script>
+</body>
+</html>
