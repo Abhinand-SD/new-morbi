@@ -1,11 +1,11 @@
-<link rel="stylesheet" href="./css/user_drop_down.css" />
+<link rel="stylesheet" href="/css/user_drop_down.css" />
 <!-- Start Header/Navigation -->
 <nav
   class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark"
   aria-label="Furni navigation bar"
 >
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/user/home">
       <!-- Logo can be uncommented -->
       <!-- <img class="logo-img" src="./images/logo.png" alt="image_description">-->
       NEW MORBI <span class="sub_title"></span>
@@ -26,8 +26,8 @@
     <div class="collapse navbar-collapse" id="navbarsFurni">
       <!-- Navigation Links -->
       <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-        <li class="nav-item act"><a class="nav-link" href="/">Home</a></li>
-        <li class="nav-item act"><a class="nav-link" href="/shop">Shop</a></li>
+        <li class="nav-item act"><a class="nav-link" href="/user/home">Home</a></li>
+        <li class="nav-item act"><a class="nav-link" href="/user/shop">Shop</a></li>
         <!-- <li><a class="nav-link" href="/about">About</a></li>
 						<li><a class="nav-link" href="/services.html">Services</a></li>
 						<li><a class="nav-link" href="/blog">Blog</a></li>
@@ -46,7 +46,7 @@
             aria-expanded="false"
           >
             <img
-              src="images/icons/search.png"
+              src="/images/icons/search.png"
               alt="Search"
               style="width: 20px; height: 20px"
             />
@@ -60,22 +60,24 @@
               box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             "
           >
-            <form class="d-flex" role="search">
-              <input
-                class="form-control form-control-sm me-2"
-                type="search"
-                placeholder="Search for products..."
-                aria-label="Search"
-                style="border-radius: 4px; border: 1px solid #ccc; padding: 4px"
-              />
-              <button
-                class="btn btn-outline-light btn-sm"
-                type="submit"
-                style="border-radius: 4px; padding: 2px 8px"
-              >
-                Go
-              </button>
-            </form>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control form-control-sm me-2"
+              type="search"
+              placeholder="Search for products..."
+              aria-label="Search"
+              style="border-radius: 4px; border: 1px solid #ccc; padding: 4px"
+            />
+            <a
+              href="/user/shop"
+              class="btn btn-outline-light btn-sm d-flex justify-content-center align-items-center"
+              style="border-radius: 4px; padding: 2px 8px; text-decoration: none; color: white"
+            >
+              Go
+            </a>
+          </form>
+          
+          
           </div>
         </li>
       </ul>
@@ -106,10 +108,10 @@
             <li>
               <a
                 class="dropdown-item d-flex align-items-center"
-                href="/profile"
+                href="/user/profile"
               >
                 <img
-                  src="images/icons/profile.png"
+                  src="/images/icons/profile.png"
                   alt="Profile"
                   style="width: 20px; height: 20px; margin-right: 10px"
                 />
@@ -119,10 +121,10 @@
             <li>
               <a
                 class="dropdown-item d-flex align-items-center"
-                href="wallet.html"
+                href="/user/wallet.html"
               >
                 <img
-                  src="images/icons/wallet.png"
+                  src="/images/icons/wallet.png"
                   alt="Future Option"
                   style="width: 20px; height: 20px; margin-right: 10px"
                 />
@@ -132,10 +134,10 @@
             <li>
               <a
                 class="dropdown-item d-flex align-items-center"
-                href="orders.html"
+                href="/user/orders"
               >
                 <img
-                  src="images/icons/orders.png"
+                  src="/images/icons/orders.png"
                   alt="Orders"
                   style="width: 20px; height: 20px; margin-right: 10px"
                 />
@@ -145,10 +147,10 @@
             <li>
               <a
                 class="dropdown-item d-flex align-items-center"
-                href="wishlist.html"
+                href="/user/wishlist"
               >
                 <img
-                  src="images/icons/wishlist.png"
+                  src="/images/icons/wishlist.png"
                   alt="Wishlist"
                   style="width: 20px; height: 20px; margin-right: 10px"
                 />
@@ -158,10 +160,10 @@
             <li>
               <a
                 class="dropdown-item d-flex align-items-center"
-                href="coupon.html"
+                href="/user/coupon"
               >
                 <img
-                  src="images/icons/coupon.png"
+                  src="/images/icons/coupon.png"
                   alt="Future Option"
                   style="width: 20px; height: 20px; margin-right: 10px"
                 />
@@ -171,9 +173,9 @@
 
             <li><hr class="dropdown-divider" /></li>
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="/logout">
+              <a class="dropdown-item d-flex align-items-center" href="/user/logout">
                 <img
-                  src="images/icons/logout.png"
+                  src="/images/icons/logout.png"
                   alt="Logout"
                   style="width: 20px; height: 20px; margin-right: 10px"
                 />
@@ -206,17 +208,17 @@
               class="dropdown-header d-flex justify-content-between align-items-center px-3"
             >
               <span class="text-muted">New customer?</span>
-              <a href="/signUp" class="fw-bold">Sign Up</a>
+              <a href="/user/signUp" class="fw-bold">Sign Up</a>
             </li>
             <li><hr class="dropdown-divider" /></li>
 
             <li>
               <a
                 class="dropdown-item d-flex align-items-center"
-                href="/profile"
+                href="/user/profile"
               >
                 <img
-                  src="images/icons/profile.png"
+                  src="/images/icons/profile.png"
                   alt="Profile"
                   style="width: 20px; height: 20px; margin-right: 10px"
                 />
@@ -229,7 +231,7 @@
                 href="orders.html"
               >
                 <img
-                  src="images/icons/orders.png"
+                  src="/images/icons/orders.png"
                   alt="Orders"
                   style="width: 20px; height: 20px; margin-right: 10px"
                 />
@@ -242,7 +244,7 @@
                 href="wishlist.html"
               >
                 <img
-                  src="images/icons/wishlist.png"
+                  src="/images/icons/wishlist.png"
                   alt="Wishlist"
                   style="width: 20px; height: 20px; margin-right: 10px"
                 />
@@ -255,7 +257,7 @@
                 href="coupon.html"
               >
                 <img
-                  src="images/icons/coupon.png"
+                  src="/images/icons/coupon.png"
                   alt="Coupons"
                   style="width: 20px; height: 20px; margin-right: 10px"
                 />
@@ -268,9 +270,9 @@
         <% } %>
         <!-- Cart Icon -->
         <li>
-          <a class="nav-link" href="/cart"
+          <a class="nav-link" href="/user/cart"
             ><img
-              src="images/cart.svg"
+              src="/images/cart.svg"
               alt="Cart"
               style="width: 20px; height: 20px"
           /></a>
